@@ -1,0 +1,77 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model AmeliyatListViewModel
+@{
+
+    ViewData["Title"] = "Anti Reflü Ameliyatı  Ekle";
+
+}
+
+<body>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <form method="post">
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.AmeliyatId" class="form-label">Ameliyat Seçin</label>
+                    <select asp-for="AntiRefluss.AmeliyatId" class="form-control">
+                        @foreach (var ameliyat in Model.Ameliyatlar)
+                        {
+                            <option value="@ameliyat.Id"> @ameliyat.AmeliyatTarihi-@ameliyat.AmeliyatAdi</option>
+                        }
+                    </select>
+                    <span asp-validation-for="AntiRefluss.AmeliyatId" class="text-danger small"></span>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                    <input asp-for="AntiRefluss.AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                    <span asp-validation-for="AntiRefluss.AmeliyatTipi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.GAA_PVI" class="form-label">GAA/PVI</label>
+                    <input asp-for="AntiRefluss.GAA_PVI" class="form-control" placeholder="GAA/PVI" />
+                    <span asp-validation-for="AntiRefluss.GAA_PVI" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.OzefagusSerbest" class="form-label">Anus Yeri Tespit</label>
+                    <input asp-for="AntiRefluss.OzefagusSerbest" class="form-control" placeholder="Anus Yeri Tespit" />
+                    <span asp-validation-for="AntiRefluss.OzefagusSerbest" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.Fundoplikasyon" class="form-label">İnsizyon Yapılması</label>
+                    <input asp-for="AntiRefluss.Fundoplikasyon" class="form-control" placeholder="İnsizyon Yapılması" />
+                    <span asp-validation-for="AntiRefluss.Fundoplikasyon" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.GastrostomiAcilmasi" class="form-label">Sfinkter Koruma</label>
+                    <input asp-for="AntiRefluss.GastrostomiAcilmasi" class="form-control" placeholder="Sfinkter Koruma" />
+                    <span asp-validation-for="AntiRefluss.GastrostomiAcilmasi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.KanamaKontrolu" class="form-label">Pull-Through İşlemi</label>
+                    <input asp-for="AntiRefluss.KanamaKontrolu" class="form-control" placeholder="Pull-Through İşlemi" />
+                    <span asp-validation-for="AntiRefluss.KanamaKontrolu" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="AntiRefluss.KomplikasyonDurumu" class="form-label">Komplikasyon Durumu</label>
+                    <input asp-for="AntiRefluss.KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" />
+                    <span asp-validation-for="AntiRefluss.KomplikasyonDurumu" class="text-danger small"></span>
+                </div>
+      
+
+                <div class="form-group d-grid mb-3">
+                    <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

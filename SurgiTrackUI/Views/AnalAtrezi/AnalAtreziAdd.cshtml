@@ -1,0 +1,84 @@
+﻿﻿    ﻿@using SurgiTrackUI.Models
+
+    @model AmeliyatListViewModel
+    @{
+   
+        ViewData["Title"] = "AnalAtrezi Ameliyatı  Ekle";
+
+    }
+
+    <body>
+        <div class="row">
+        <div class="col-4 offset-4">
+            <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <form method="post">
+                    <div class="form-group mb-3">
+                            <label asp-for="AnalAtreziss.AmeliyatId" class="form-label">Hasta Seçin</label>
+                            <select asp-for="AnalAtreziss.AmeliyatId" class="form-control">
+                                @foreach (var ameliyat in Model.Ameliyatlar)
+                                {
+                                    <option value="@ameliyat.Id"> @ameliyat.AmeliyatTarihi-@ameliyat.AmeliyatAdi</option>
+                                }
+                            </select>
+                            <span asp-validation-for="AnalAtreziss.AmeliyatId" class="text-danger small"></span>
+                        </div>
+                <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                        <input asp-for="AnalAtreziss.AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                        <span asp-validation-for="AnalAtreziss.AmeliyatTipi" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.GAA_PVI" class="form-label">GAA/PVI</label>
+                        <input asp-for="AnalAtreziss.GAA_PVI" class="form-control" placeholder="GAA/PVI" />
+                        <span asp-validation-for="AnalAtreziss.GAA_PVI" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.AnusYeriTespit" class="form-label">Anus Yeri Tespit</label>
+                        <input asp-for="AnalAtreziss.AnusYeriTespit" class="form-control" placeholder="Anus Yeri Tespit" />
+                        <span asp-validation-for="AnalAtreziss.AnusYeriTespit" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.InsizyonYapilmasi" class="form-label">İnsizyon Yapılması</label>
+                        <input asp-for="AnalAtreziss.InsizyonYapilmasi" class="form-control" placeholder="İnsizyon Yapılması" />
+                        <span asp-validation-for="AnalAtreziss.InsizyonYapilmasi" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.SfinkterKoruma" class="form-label">Sfinkter Koruma</label>
+                        <input asp-for="AnalAtreziss.SfinkterKoruma" class="form-control" placeholder="Sfinkter Koruma" />
+                        <span asp-validation-for="AnalAtreziss.SfinkterKoruma" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.PullThroughIslemi" class="form-label">Pull-Through İşlemi</label>
+                        <input asp-for="AnalAtreziss.PullThroughIslemi" class="form-control" placeholder="Pull-Through İşlemi" />
+                        <span asp-validation-for="AnalAtreziss.PullThroughIslemi" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.AnostomozYapilmasi" class="form-label">Anostomoz Yapılması</label>
+                        <input asp-for="AnalAtreziss.AnostomozYapilmasi" class="form-control" placeholder="Anostomoz Yapılması" />
+                        <span asp-validation-for="AnalAtreziss.AnostomozYapilmasi" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.KanamaKontrolu" class="form-label">Kanama Kontrolü</label>
+                        <input asp-for="AnalAtreziss.KanamaKontrolu" class="form-control" placeholder="Kanama Kontrolü" />
+                                  <span asp-validation-for="AnalAtreziss.KanamaKontrolu" class="text-danger small"></span>
+                    </div>
+                      <div class="form-group mb-3">
+                        <label asp-for="AnalAtreziss.KomplikasyonDurumu" class="form-label">Komplikasyon</label>
+                        <input asp-for="AnalAtreziss.KomplikasyonDurumu" class="form-control" placeholder="Kanama Kontrolü" />
+                                  <span asp-validation-for="AnalAtreziss.KomplikasyonDurumu" class="text-danger small"></span>
+                    </div>
+            
+
+
+                <div class="form-group d-grid mb-3">
+                    <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </body>

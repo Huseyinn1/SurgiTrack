@@ -1,0 +1,107 @@
+﻿﻿@using SurgiTrackUI.Models
+@model AmeliyatListViewModel
+
+@{
+    ViewData["Title"] = "Tek Anti Reflü Ameliyatı";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="display-4 text-center border-bottom pb-2">
+                @foreach (var hasta in Model.Hastalar)
+                {
+                    <div>@hasta.Ad @hasta.Soyad</div>
+                }
+                @* @Model.Ameliyatlar.AmeliyatAdi @ViewData["Title"] *@
+            </h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="text-danger small mb-4"></div>
+
+            @*<div class="text-center mb-3">
+            <label class="form-label small mb-2">Profil İmage</label>
+            <img src="~/uploads/@Model.ProfilImageFileName" width="128" class="img-thumbnail rounded-circle" />
+            </div>*@
+
+
+            <div class="form-group">
+                <label class="form-label small">Hasta Adı</label>
+                <div class="form-control">
+                    @foreach (var hasta in Model.Hastalar)
+                    {
+                        <div class="hasta-item">
+                            @hasta.Ad @hasta.Soyad -->
+                            <a href="@Url.Action("TekilHasta", "Hasta", new { id = hasta.Id })">Hasta Profiline Git</a>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Tipi</label>
+                <div class="form-control">@Model.antiReflu.AmeliyatTipi</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">GAA_PVI</label>
+                <div class="form-control">@Model.antiReflu.GAA_PVI</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ozefagus Serbest</label>
+                <div class="form-control">@Model.antiReflu.OzefagusSerbest</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Fundoplikasyon</label>
+                <div class="form-control">@Model.antiReflu.Fundoplikasyon</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Gastrostomi Açılması</label>
+                <div class="form-control">@Model.antiReflu.GastrostomiAcilmasi</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Kanama Kontrolü</label>
+                <div class="form-control">@Model.antiReflu.KanamaKontrolu</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Komplikasyon Durumu</label>
+                <div class="form-control">@Model.antiReflu.KomplikasyonDurumu</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Doktoru </label>
+                @foreach (var doktor in Model.Doktorlar)
+                {
+                    <div class="form-control">
+
+                        <div>
+                            @doktor.Ad    @doktor.Soyad -->
+                            <a href="@Url.Action("TekilDoktor", "Doktor", new { id = doktor.Id })">Doktor Profiline Git</a>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Detayları</label>
+                <div class="form-control">
+                    Bu ameliyat, 15 Mart 2023 tarihinde gerçekleştirilmiştir. Operasyon süresi 2 saat sürmüş ve laparoskopik yöntemle uygulanmıştır. Hastanın genel durumu ameliyat öncesinde değerlendirilmiş ve tüm tetkik sonuçları normal bulunmuştur. Operasyon sırasında minimal invaziv teknikler kullanılarak mideye Fundoplikasyon işlemi uygulanmıştır. Ameliyat sonrasında hasta gözetim altında tutulmuş ve herhangi bir komplikasyon gelişmemiştir. İyileşme süreci olumlu yönde ilerlemekte olup, hasta taburcu edilmiştir.
+                </div>
+            </div>      
+        </div>
+    </div>
+</div>

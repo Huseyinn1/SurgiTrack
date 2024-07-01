@@ -1,0 +1,106 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model AmeliyatViewModel
+@{
+    ViewData["Title"] = "Apandist Ameliyatı Düzenle";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form method="post">
+
+
+            <div class="form-group mb-3">
+                <label asp-for="Ameliyat.HastaId" class="form-label">Hasta Seçin</label>
+                <select asp-for="Ameliyat.HastaId" class="form-control">
+                    @foreach (var hasta in Model.Hastalar)
+                    {
+                        <option value="@hasta.Id">@hasta.Ad</option>
+                    }
+                </select>
+                <span asp-validation-for="Ameliyat.HastaId" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                <input asp-for="Apandisitss.AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                <span asp-validation-for="Apandisitss.AmeliyatTipi" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.AmeliyatYapilanBolge" class="form-label">Ameliyat Yapılan Bölge</label>
+                <input asp-for="Apandisitss.AmeliyatYapilanBolge" class="form-control" placeholder="Ameliyat Yapılan Bölge" />
+                <span asp-validation-for="Apandisitss.AmeliyatYapilanBolge" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.GAA_PVI" class="form-label">GAA_PVI</label>
+                <input asp-for="Apandisitss.GAA_PVI" class="form-control" placeholder="GAA_PVI" />
+                <span asp-validation-for="Apandisitss.GAA_PVI" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.ApandisitTesbit" class="form-label">Apandisit Tespit</label>
+                <input asp-for="Apandisitss.ApandisitTesbit" class="form-control" placeholder="Apandisit Tespit" />
+                <span asp-validation-for="Apandisitss.ApandisitTesbit" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.ApandiksSerbest" class="form-label">Apandiks Serbest</label>
+                <input asp-for="Apandisitss.ApandiksSerbest" class="form-control" placeholder="Apandiks Serbest" />
+                <span asp-validation-for="Apandisitss.ApandiksSerbest" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.ApandektomiYapilmasi" class="form-label">Apandektomi Yapılması</label>
+                <input asp-for="Apandisitss.ApandektomiYapilmasi" class="form-control" placeholder="Apandektomi Yapılması" />
+                <span asp-validation-for="Apandisitss.ApandektomiYapilmasi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.PeritonealLavaj" class="form-label">Peritoneal Lavaj</label>
+                <input asp-for="Apandisitss.PeritonealLavaj" class="form-control" placeholder="Peritoneal Lavaj" />
+                <span asp-validation-for="Apandisitss.PeritonealLavaj" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.PeritonKapatma" class="form-label">Periton Kapatma</label>
+                <input asp-for="Apandisitss.PeritonKapatma" class="form-control" placeholder="Periton Kapatma" />
+                <span asp-validation-for="Apandisitss.PeritonKapatma" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.AdaleSuturleriYaklastirma" class="form-label">Adale Suturleri Yaklaştırma</label>
+                <input asp-for="Apandisitss.AdaleSuturleriYaklastirma" class="form-control" placeholder="Adale Suturleri Yaklaştırma" />
+                <span asp-validation-for="Apandisitss.AdaleSuturleriYaklastirma" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.CiltDikilmesi" class="form-label">Cilt Dikilmesi</label>
+                <input asp-for="Apandisitss.CiltDikilmesi" class="form-control" placeholder="Cilt Dikilmesi" />
+                <span asp-validation-for="Apandisitss.CiltDikilmesi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.KanamaKontrolu" class="form-label">Kanama Kontrolü</label>
+                <input asp-for="Apandisitss.KanamaKontrolu" class="form-control" placeholder="Kanama Kontrolü" />
+                <span asp-validation-for="Apandisitss.KanamaKontrolu" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Apandisitss.KomplikasyonDurumu" class="form-label">Komplikasyon Durumu</label>
+                <input asp-for="Apandisitss.KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" />
+                <span asp-validation-for="Apandisitss.KomplikasyonDurumu" class="text-danger small"></span>
+            </div>
+
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+        </form>
+    </div>
+</div>

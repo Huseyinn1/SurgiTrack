@@ -1,0 +1,55 @@
+﻿    ﻿@using SurgiTrackUI.Models
+    @model HastaAmeliyatViewModel
+
+    @{
+        ViewData["Title"] = "Hasta ";
+    }
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="display-4 text-center border-bottom pb-2"> @ViewData["Title"] @Model.Hasta.Ad</h1>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div  class="text-danger small mb-4"></div>
+
+                @*<div class="text-center mb-3">
+                    <label class="form-label small mb-2">Profil İmage</label>
+                    <img src="~/uploads/@Model.ProfilImageFileName" width="128" class="img-thumbnail rounded-circle" />
+                </div>*@
+
+                <div class="form-group">
+                    <label class="form-label small">Ad</label>
+                    <div class="form-control">@Model.Hasta.Ad</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label small">Soyad</label>
+                    <div class="form-control">@Model.Hasta.Soyad</div>
+                </div> 
+                <div class="form-group">
+                    <label class="form-label small">Hasta Detayları</label>
+                <div class="form-control">
+                    Bu ameliyat, 15 Mart 2023 tarihinde gerçekleştirilmiştir. Operasyon süresi 2 saat sürmüş ve laparoskopik yöntemle uygulanmıştır. Hastanın genel durumu ameliyat öncesinde değerlendirilmiş ve tüm tetkik sonuçları normal bulunmuştur. Operasyon sırasında minimal invaziv teknikler kullanılarak mideye Fundoplikasyon işlemi uygulanmıştır. Ameliyat sonrasında hasta gözetim altında tutulmuş ve herhangi bir komplikasyon gelişmemiştir. İyileşme süreci olumlu yönde ilerlemekte olup, hasta taburcu edilmiştir.
+                </div>
+            
+     
+                <div class="col-md-6">
+        <h4 class="mt-4">Son ameliyatları</h4>
+      
+     <ul>
+    @foreach (var ameliyat in Model.Ameliyatlar)
+    {
+        <li>
+            <a href="@Url.Action("TekilAmeliyat", "Ameliyat", new { id = ameliyat.Id })">@ameliyat.AmeliyatAdi</a>
+        </li>
+    }
+</ul>
+    </div>
+            
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,103 @@
+﻿    ﻿@using SurgiTrackUI.Models
+
+@model AmeliyatListViewModel
+@{
+
+    ViewData["Title"] = "Kolon Pull Through (Erkek) Ameliyatı  Ekle";
+
+}
+
+<body>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <form method="post">
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="AnalAtreziss.AmeliyatId" class="form-label">Ameliyat Seçin</label>
+                    <select asp-for="AnalAtreziss.AmeliyatId" class="form-control">
+                        @foreach (var ameliyat in Model.Ameliyatlar)
+                        {
+                            <option value="@ameliyat.Id"> @ameliyat.AmeliyatTarihi-@ameliyat.AmeliyatAdi</option>
+                        }
+                    </select>
+                    <span asp-validation-for="AnalAtreziss.AmeliyatId" class="text-danger small"></span>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                    <input asp-for="KolonPullThroughErkekss.AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                    <span asp-validation-for="KolonPullThroughErkekss.AmeliyatTipi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.AmeliyatYapilanBolge" class="form-label">Ameliyat Yapılan Bölge</label>
+                    <input asp-for="KolonPullThroughErkekss.AmeliyatYapilanBolge" class="form-control" placeholder="Ameliyat Yapılan Bölge" />
+                    <span asp-validation-for="KolonPullThroughErkekss.AmeliyatYapilanBolge" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.AmeliyatYontemi" class="form-label">Ameliyat Yöntemi</label>
+                    <input asp-for="KolonPullThroughErkekss.AmeliyatYontemi" class="form-control" placeholder="Ameliyat Yöntemi" />
+                    <span asp-validation-for="KolonPullThroughErkekss.AmeliyatYontemi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.GAA_PVI" class="form-label">GAA_PVI</label>
+                    <input asp-for="KolonPullThroughErkekss.GAA_PVI" class="form-control" placeholder="GAA_PVI" />
+                    <span asp-validation-for="KolonPullThroughErkekss.GAA_PVI" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.RektumAskiyaAlma" class="form-label">Rektum Askıya Alma</label>
+                    <input asp-for="KolonPullThroughErkekss.RektumAskiyaAlma" class="form-control" placeholder="Rektum Askıya Alma" />
+                    <span asp-validation-for="KolonPullThroughErkekss.RektumAskiyaAlma" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.UretraKateterizasyon" class="form-label">Üretra Kateterizasyon</label>
+                    <input asp-for="KolonPullThroughErkekss.UretraKateterizasyon" class="form-control" placeholder="Üretra Kateterizasyon" />
+                    <span asp-validation-for="KolonPullThroughErkekss.UretraKateterizasyon" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.RektumDiseksiyonu" class="form-label">Rektum Diseksiyonu</label>
+                    <input asp-for="KolonPullThroughErkekss.RektumDiseksiyonu" class="form-control" placeholder="Rektum Diseksiyonu" />
+                    <span asp-validation-for="KolonPullThroughErkekss.RektumDiseksiyonu" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.AnusSfinterKoruma" class="form-label">Anüs Sfinter Koruma</label>
+                    <input asp-for="KolonPullThroughErkekss.AnusSfinterKoruma" class="form-control" placeholder="Anüs Sfinter Koruma" />
+                    <span asp-validation-for="KolonPullThroughErkekss.AnusSfinterKoruma" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.PullThroughIslemi" class="form-label">Pull Through İşlemi</label>
+                    <input asp-for="KolonPullThroughErkekss.PullThroughIslemi" class="form-control" placeholder="Pull Through İşlemi" />
+                    <span asp-validation-for="KolonPullThroughErkekss.PullThroughIslemi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.AnostomozYapilmasi" class="form-label">Anostomoz Yapılması</label>
+                    <input asp-for="KolonPullThroughErkekss.AnostomozYapilmasi" class="form-control" placeholder="Anostomoz Yapılması" />
+                    <span asp-validation-for="KolonPullThroughErkekss.AnostomozYapilmasi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.KanamaKontrolu" class="form-label">Kanama Kontrolü</label>
+                    <input asp-for="KolonPullThroughErkekss.KanamaKontrolu" class="form-control" placeholder="KanamaKontrolu" />
+                    <span asp-validation-for="KolonPullThroughErkekss.KanamaKontrolu" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="KolonPullThroughErkekss.KomplikasyonDurumu" class="form-label">Komplikasyon Durumu</label>
+                    <input asp-for="KolonPullThroughErkekss.KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" />
+                    <span asp-validation-for="KolonPullThroughErkekss.KomplikasyonDurumu" class="text-danger small"></span>
+                </div>
+
+
+
+                <div class="form-group d-grid mb-3">
+                    <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

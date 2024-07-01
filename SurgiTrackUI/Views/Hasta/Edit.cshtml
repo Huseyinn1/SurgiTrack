@@ -1,0 +1,83 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model Hasta
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form method="post">
+              <div class="form-group mb-3">
+
+                <label asp-for="Ad" class="form-label">Add</label>
+                <input asp-for="Ad" class="form-control" placeholder="Add" />
+                <span asp-validation-for="Ad" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+
+                <label asp-for="Soyad" class="form-label">soyad</label>
+                <input asp-for="Soyad" class="form-control" placeholder="soyad" />
+                <span asp-validation-for="Soyad" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+
+                <label asp-for="Cinsiyet" class="form-label">cinsiyet</label>
+                <input asp-for="Cinsiyet"  class="form-control" placeholder="cinsiyet" />
+                <span asp-validation-for="Cinsiyet" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+
+                <label asp-for="DogumTarihi" class="form-label">tarih</label>
+                <input asp-for="DogumTarihi" class="form-control" placeholder="tarih" />
+                <span asp-validation-for="DogumTarihi" class="text-danger small"></span>
+            </div>
+                <div class="form-group mb-3">
+
+                <label asp-for="Telefon" class="form-label">telefon</label>
+                <input asp-for="Telefon" class="form-control" placeholder="telefon" />
+                <span asp-validation-for="Telefon" class="text-danger small"></span>
+            </div>
+                <div class="form-group mb-3">
+
+                <label asp-for="Eposta" class="form-label">eposta</label>
+                <input asp-for="Eposta" class="form-control" placeholder="eposta" />
+                <span asp-validation-for="Eposta" class="text-danger small"></span>
+            </div>
+                <div class="form-group mb-3">
+
+                <label asp-for="Adres" class="form-label">adres</label>
+                <input asp-for="Adres" class="form-control" placeholder="adres" />
+                <span asp-validation-for="Adres" class="text-danger small"></span>
+            </div>
+                <div class="form-group mb-3">
+
+                <label asp-for="KayitTarihi" class="form-label">tarih</label>
+                <input asp-for="KayitTarihi" class="form-control" placeholder="tarih" />
+                <span asp-validation-for="KayitTarihi" class="text-danger small"></span>
+            </div>
+           
+            
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+
+      
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+        </form>
+    </div>
+</div>

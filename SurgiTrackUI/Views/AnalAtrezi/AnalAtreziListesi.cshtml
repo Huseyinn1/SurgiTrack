@@ -1,0 +1,110 @@
+﻿﻿@using SurgiTrackUI.Models
+@model AmeliyatListViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z5lFf5r5lCtH5UhV/wGn1I6Ii/zpCtHfQZzQmG6Z4Og6iFlPeaVTFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <!-- DataTables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h3>AnalAtrezi Listesi</h3>
+        </div>
+        <table id="yourTableId" class="table table-bordered table-striped table-sm">
+            <thead>
+                <!--  <form method="get" action="@Url.Action("DoktorListesi", "Doktor")">
+                         <div class="input-group mb-3">
+                             <input type="text" class="form-control" name="search" id="searchInput" placeholder="Doktor Adı">
+                             <button class="btn btn-outline-secondary" type="submit">Ara</button>
+                         </div>
+                     </form> -->
+                <tr>
+                    <th>Ameliyat Adı</th>
+                    <th>Ameliyat Tarihi</th>
+                    <th>Doktor Adı</th>
+                    <th>Hasta Adı</th>
+                    <th>Ameliyat Tipi</th>
+                    <th>GAA_PVI</th>
+                    <th>Anüs Yeri Tespit</th>
+                    <th>Insizyon Yapilmasi</th>
+                    <th>Sfinkter Koruma</th>
+                    <th>Pull Through İşlemi</th>
+                    <th>Anostomoz Yapılması</th>
+                    <th>Kanama Kontrolü</th>
+                    <th>Komplikasyon Durumu</th>
+                    <th>İşlemler</th>
+
+
+                    <!-- Diğer kullanıcı özellikleri eklenebilir -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var analAtrezi in Model.AnalAtrezis)
+                {
+                    <tr>
+                        <td>@Model.Ameliyatlar.FirstOrDefault(h => h.Id == analAtrezi.AmeliyatId)?.AmeliyatAdi</td>
+                        <td>@Model.Ameliyatlar.FirstOrDefault(h => h.Id == analAtrezi.AmeliyatId)?.AmeliyatTarihi</td>
+                        <td>
+                            @{
+                                var doktorId = Model.Ameliyatlar.FirstOrDefault(h => h.Id == analAtrezi.AmeliyatId)?.DoktorId;
+                                var doktor = Model.Doktorlar.FirstOrDefault(d => d.Id == doktorId);
+                            }
+
+                            @doktor?.Ad
+                        </td>
+                         <td>
+                            @{
+                                var hastaId = Model.Ameliyatlar.FirstOrDefault(h => h.Id == analAtrezi.AmeliyatId)?.HastaId;
+                                var hasta = Model.Hastalar.FirstOrDefault(d => d.Id == hastaId);
+                            }
+
+                            @hasta?.Ad
+                        </td>
+
+                        <td>@analAtrezi.AmeliyatTipi</td>
+                        <td>@analAtrezi.GAA_PVI</td>
+                        <td>@analAtrezi.AnusYeriTespit</td>
+                        <td>@analAtrezi.InsizyonYapilmasi</td>
+                        <td>@analAtrezi.SfinkterKoruma</td>
+                        <td>@analAtrezi.PullThroughIslemi</td>
+                        <td>@analAtrezi.AnostomozYapilmasi</td>
+                        <td>@analAtrezi.KanamaKontrolu</td>
+                        <td>@analAtrezi.KomplikasyonDurumu</td>
+
+                        <td>
+
+                            <a href="@Url.Action("TekilAnalAtrezi", "AnalAtrezi", new { id = analAtrezi.Id })" class="btn btn-primary btn-sm"> <i class="bi bi-person"></i>AnalAtrezi Ameliyat Detayları</a>
+                            <a asp-action="Edit" asp-route-id="@analAtrezi.Id" class="btn btn-info btn-sm "><i class="fa fa-edit me-2"> Edit</i></a>
+                            <a asp-action="Delete" asp-route-id="@analAtrezi.Id"
+                           onclick="return confirm('Are you sure  want to delete this Surgery: @analAtrezi.Id')"
+                           class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"> Remove</i></a>
+                        </td>
+                        <!-- Diğer kullanıcı özellikleri eklenebilir -->
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde ve arama kutusuna her yazıldığında çalışacak JavaScript fonksiyonu
+        $(document).ready(function () {
+
+            $('#yourTableId').DataTable();
+        });
+    </script>
+</body>
+</html>

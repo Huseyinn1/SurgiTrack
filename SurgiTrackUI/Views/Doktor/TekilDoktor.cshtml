@@ -1,0 +1,136 @@
+﻿﻿@using SurgiTrackUI.Models
+@model DoktorAmeliyatViewModel
+
+@{
+    ViewData["Title"] = "Doktor ";
+}
+
+
+@*
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="display-4 text-center border-bottom pb-2"> @ViewData["Title"] @Model.Doktor.Ad</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div  class="text-danger small mb-4"></div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Ad</label>
+                <div class="form-control">@Model.Doktor.Ad</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Soyad</label>
+                <div class="form-control">@Model.Doktor.Soyad</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Telefon</label>
+                <div class="form-control">@Model.Doktor.Telefon</div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+ *@
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Doktor @Model.Doktor.Ad</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-12 col-lg-6 d-flex">
+            <!-- Grafik Bölümü -->
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4>Aylara göre yapılan ameliyatlar</h4>
+                </div>
+                <div class="card-body">
+                    <div id="area"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 d-flex">
+            <!-- Form Bölümü -->
+            <div class="card w-100 flex-grow-1">
+                <div class="card-body">
+                    <form action="#" method="get">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Ad</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Adınız" value="@Model.Doktor.Ad">
+                        </div>
+                        <div class="form-group">
+                            <label for="soyad" class="form-label">Soyad</label>
+                            <input type="text" name="soyad" id="soyad" class="form-control" placeholder="Soyadınız" value="@Model.Doktor.Soyad">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Telefonunuz" value="@Model.Doktor.Telefon">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Emailiniz" value="@Model.Doktor.Eposta">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cinsiyet" class="form-label">Cinsiyet</label>
+                            <input type="text" name="cinsiyet" id="cinsiyet" class="form-control" placeholder="Cinsiyetiniz" value='@(Model.Doktor.Cinsiyet == 'E' ? "Erkek" : "Kadın")'>
+                        </div>
+
+
+                        <h4 class="mt-4">Son ameliyatları</h4>
+
+                        <ul>
+                            @foreach (var ameliyat in Model.Ameliyatlar)
+                            {
+                                <li>
+                                    <a href="@Url.Action("TekilAmeliyat", "Ameliyat", new { id = ameliyat.Id })">@ameliyat.AmeliyatAdi</a>
+                                </li>
+                            }
+                        </ul>
+
+
+
+                        @* <div class="form-group">
+                            <label for="gender" class="form-label">Cinsiyet</label>
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="E">Erkek</option>
+                                <option value="K">Kadın</option>
+                            </select>
+                        </div> *@
+                    </form>
+                </div>
+                <!-- Butonu buraya taşı -->
+                @* <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-primary">Değişikliği Kaydet</button>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</div>
+
+
+<script src="~/assets/extensions/apexcharts/apexcharts.min.js"></script>
+
+<script src="~/assets/static/js/pages/ui-apexchart.js"></script>

@@ -1,0 +1,83 @@
+﻿﻿@using SurgiTrackUI.Models
+@model List<Hasta>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+  
+    <link href="~/css/styles.css" rel="stylesheet" />
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<!-- DataTables JS -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h3>Kayıtlı Kullanıcılar</h3>
+        </div>
+ <div class="container">
+<table id="yourTableId" class="table table-bordered table-striped table-sm">
+    <thead>
+   <!-- <form method="get" action="@Url.Action("HastaListesi", "Hasta")">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search" id="searchInput" placeholder="Hasta Adı">
+                <button class="btn btn-outline-secondary" type="submit">Ara</button>
+            </div>
+        </form>-->
+        <tr>
+
+       <th >Ad</th>
+            <th>soyad</th>
+            <th>cinsiyet</th>
+            <th>telefon</th>
+            <th>adres</th>
+            <th>eposta</th>
+             <th>dogumtarihi</th>
+            <th>İşlemler</th>
+            <!-- Diğer kullanıcı özellikleri eklenebilir -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Ad</td>
+              <td>@user.Soyad</td>
+               <td>@user.Cinsiyet</td>
+              <td>@user.Telefon</td>
+                <td>@user.Adres</td>
+                <td>@user.Eposta</td>
+              <td>@user.DogumTarihi</td>
+              <td>
+                            <a href="@Url.Action("TekilHasta", "Hasta", new { id = user.Id })" class="btn btn-primary btn-sm"> <i class="bi bi-person"></i> Profile Git</a>
+                            <a href="/Ameliyat/AmeliyatAdd" class="btn btn-primary btn-sm"> <i class="bi bi-person"></i> Ameliyat Palnı</a>
+                            <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-info btn-sm "><i class="fa fa-edit me-2"> Edit</i></a>
+                           <a asp-action="Delete" asp-route-id="@user.Id"
+                            onclick="return confirm('Are you sure  want to delete this Doktor: @user.Ad @user.Soyad?')"
+                            class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"> Remove</i></a>
+                           </td>
+                <!-- Diğer kullanıcı özellikleri eklenebilir -->
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+    </div>
+   
+    <script>
+    // Sayfa yüklendiğinde ve arama kutusuna her yazıldığında çalışacak JavaScript fonksiyonu
+  $(document).ready(function () {
+       
+         $('#yourTableId').DataTable();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model AnalAtrezi
+@{
+    ViewData["Title"] = "Anal Atrezi Ameliyatı Düzenle";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form  method="post">
+
+             <div class="form-group mb-3">
+                <label asp-for="Id" class="form-label">Ameliyat Id</label>
+                <select asp-for="Id" class="form-control"></select>
+                <span asp-validation-for="Id" class="text-danger small"></span>
+            </div>
+              <div class="form-group mb-3">
+                <label asp-for="AmeliyatId" class="form-label">Ameliyat Id</label>
+                <select asp-for="AmeliyatId" class="form-control"></select>
+                <span asp-validation-for="AmeliyatId" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                <input asp-for="AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                <span asp-validation-for="AmeliyatTipi" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="GAA_PVI" class="form-label">GAA/PVI</label>
+                <input asp-for="GAA_PVI" class="form-control" placeholder="GAA/PVI" />
+                <span asp-validation-for="GAA_PVI" class="text-danger small"></span>
+            </div>           
+
+            <div class="form-group mb-3">
+                <label asp-for="AnusYeriTespit" class="form-label">Anus Yeri Tespit</label>
+                <input asp-for="AnusYeriTespit" class="form-control" placeholder="Anus Yeri Tespit" />
+                <span asp-validation-for="AnusYeriTespit" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="InsizyonYapilmasi" class="form-label">İnsizyon Yapılması</label>
+                <input asp-for="InsizyonYapilmasi" class="form-control" placeholder="İnsizyon Yapılması" />
+                <span asp-validation-for="InsizyonYapilmasi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="SfinkterKoruma" class="form-label">Sfinkter Koruma</label>
+                <input asp-for="SfinkterKoruma" class="form-control" placeholder="Sfinkter Koruma" />
+                <span asp-validation-for="SfinkterKoruma" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="PullThroughIslemi" class="form-label">Pull-Through İşlemi</label>
+                <input asp-for="PullThroughIslemi" class="form-control" placeholder="Pull-Through İşlemi" />
+                <span asp-validation-for="PullThroughIslemi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="AnostomozYapilmasi" class="form-label">Anostomoz Yapılması</label>
+                <input asp-for="AnostomozYapilmasi" class="form-control" placeholder="Anostomoz Yapılması" />
+                <span asp-validation-for="AnostomozYapilmasi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="KanamaKontrolu" class="form-label">Kanama Kontrolü</label>
+                <input asp-for="KanamaKontrolu" class="form-control" placeholder="Kanama Kontrolü" />
+                <span asp-validation-for="KanamaKontrolu" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="KomplikasyonDurumu" class="form-label">Komplikasyon Durumu</label>
+                <input asp-for="KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" />
+                <span asp-validation-for="KomplikasyonDurumu" class="text-danger small"></span>
+            </div>
+
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+
+        
+        </form>
+    </div>
+</div>

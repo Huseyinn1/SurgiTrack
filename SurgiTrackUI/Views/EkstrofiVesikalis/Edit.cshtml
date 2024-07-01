@@ -1,0 +1,88 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model AmeliyatViewModel
+@{
+    ViewData["Title"] = "Ekstro Vesikalis Ameliyatı Düzenle";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form method="post">
+
+
+            <div class="form-group mb-3">
+                <label asp-for="Ameliyat.HastaId" class="form-label">Hasta Seçin</label>
+                <select asp-for="Ameliyat.HastaId" class="form-control">
+                    @foreach (var hasta in Model.Hastalar)
+                    {
+                        <option value="@hasta.Id">@hasta.Ad</option>
+                    }
+                </select>
+                <span asp-validation-for="Ameliyat.HastaId" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                <input asp-for="EkstrofiVesikalisss.AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                <span asp-validation-for="EkstrofiVesikalisss.AmeliyatTipi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.GAA_PVI" class="form-label">GAA/PVI</label>
+                <input asp-for="EkstrofiVesikalisss.GAA_PVI" class="form-control" placeholder="GAA/PVI" />
+                <span asp-validation-for="EkstrofiVesikalisss.GAA_PVI" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.IliakOsteotomi" class="form-label">İliak Osteotomi</label>
+                <input asp-for="EkstrofiVesikalisss.IliakOsteotomi" class="form-control" placeholder="İliak Osteotomi" />
+                <span asp-validation-for="EkstrofiVesikalisss.IliakOsteotomi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.PenisAskilama" class="form-label">Penis Askılama</label>
+                <input asp-for="EkstrofiVesikalisss.PenisAskilama" class="form-control" placeholder="Penis Askılama" />
+                <span asp-validation-for="EkstrofiVesikalisss.PenisAskilama" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.MesaneEtAyrilmasi" class="form-label">Mesane Et Ayrılması</label>
+                <input asp-for="EkstrofiVesikalisss.MesaneEtAyrilmasi" class="form-control" placeholder="Mesane Et Ayrılması" />
+                <span asp-validation-for="EkstrofiVesikalisss.MesaneEtAyrilmasi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.MesaneKapatma" class="form-label">Mesane Kapatma</label>
+                <input asp-for="EkstrofiVesikalisss.MesaneKapatma" class="form-control" placeholder="Mesane Kapatma" />
+                <span asp-validation-for="EkstrofiVesikalisss.MesaneKapatma" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.GobekDuvarKapatma" class="form-label">Göbek Duvar Kapatma</label>
+                <input asp-for="EkstrofiVesikalisss.GobekDuvarKapatma" class="form-control" placeholder="Göbek Duvar Kapatma" />
+                <span asp-validation-for="EkstrofiVesikalisss.GobekDuvarKapatma" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.KanamaKontrolu" class="form-label">Kanama Kontrolü</label>
+                <input asp-for="EkstrofiVesikalisss.KanamaKontrolu" class="form-control" placeholder="Kanama Kontrolü" />
+                <span asp-validation-for="EkstrofiVesikalisss.KanamaKontrolu" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EkstrofiVesikalisss.KomplikasyonDurumu" class="form-label">Komplikasyon Durumu</label>
+                <input asp-for="EkstrofiVesikalisss.KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" />
+                <span asp-validation-for="EkstrofiVesikalisss.KomplikasyonDurumu" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+        </form>
+    </div>
+</div>

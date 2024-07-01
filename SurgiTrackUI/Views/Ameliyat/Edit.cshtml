@@ -1,0 +1,56 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model Ameliyat
+@{
+    ViewData["Title"] = "Ameliyatını Düzenle";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2"> @Model.AmeliyatAdi @ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4">
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+
+        <form method="post">
+
+            <div class="form-group mb-3" style="display:none;">
+                <label asp-for="DoktorId" class="form-label">Ameliyat Adı</label>
+                <input asp-for="DoktorId" class="form-control" readonly />
+                <span asp-validation-for="DoktorId" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3" style="display:none;">
+                <label asp-for="HastaId" class="form-label">Hasta Adı</label>
+                <input asp-for="HastaId" class="form-control" readonly />
+                <span asp-validation-for="HastaId" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+
+                <label asp-for="AmeliyatAdi" class="form-label">Ameliyat Adı</label>
+                <input asp-for="AmeliyatAdi" class="form-control" />
+                <span asp-validation-for="AmeliyatAdi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+
+                <label asp-for="AmeliyatTarihi" class="form-label">Ameliyat Tarihi</label>
+                <input asp-for="AmeliyatTarihi" class="form-control" />
+                <span asp-validation-for="AmeliyatTarihi" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+
+            
+        </form>
+    </div>
+</div>

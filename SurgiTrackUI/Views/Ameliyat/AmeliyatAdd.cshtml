@@ -1,0 +1,75 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model AmeliyatViewModel
+@{
+
+    ViewData["Title"] = "Ameliyat Planı  Ekle";
+
+}
+
+<body>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <form method="post">
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="Ameliyat.HastaId" class="form-label">Hasta Seçin</label>
+                    <select asp-for="Ameliyat.HastaId" class="form-control">
+                        @foreach (var hasta in Model.Hastalar)
+                        {
+                            <option value="@hasta.Id">@hasta.Ad</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Ameliyat.HastaId" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Ameliyat.DoktorId" class="form-label">Doktor Seçin</label>
+                    <select asp-for="Ameliyat.DoktorId" class="form-control">
+                        @foreach (var doktor in Model.Doktorlar)
+                        {
+                            <option value="@doktor.Id">@doktor.Ad</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Ameliyat.DoktorId" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-3">
+
+                    <label asp-for="Ameliyat.AmeliyatAdi" class="form-label">Ameliyat Adı</label>
+                    <select asp-for="Ameliyat.AmeliyatAdi" class="form-control">
+                        
+                            <option value="analAtzCount">analAtz</option>
+                            <option value="antiRCount">antiR</option>
+                            <option value="apdCount">apd</option>
+                            <option value="dhCount">dh</option>
+                            <option value="eVesCount">eVes</option>
+                            <option value="kPErkCount">kPErk</option>
+                            <option value="kPKadCount">kPKad</option>
+                        
+                    </select>
+
+                    @* <input asp-for="Ameliyat.AmeliyatAdi" class="form-control"  /> *@
+                    <span asp-validation-for="Ameliyat.AmeliyatAdi" class="text-danger small"></span>
+                </div>
+                <div class="form-group mb-3">
+
+                    <label asp-for="Ameliyat.AmeliyatTarihi" class="form-label">Ameliyat Tarihi</label>
+                    <input asp-for="Ameliyat.AmeliyatTarihi" class="form-control" />
+                    <span asp-validation-for="Ameliyat.AmeliyatTarihi" class="text-danger small"></span>
+                </div>
+
+
+                <div class="form-group d-grid mb-3">
+                    <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Kayıt</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

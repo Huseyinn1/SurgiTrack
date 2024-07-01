@@ -1,0 +1,74 @@
+﻿﻿@using SurgiTrackUI.Models
+
+@model AmeliyatViewModel
+@{
+    ViewData["Title"] = "Diyafram Hernisi Ameliyatı Düzenle";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2"> @ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4 offset-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <form method="post">
+
+
+            <div class="form-group mb-3">
+                <label asp-for="Ameliyat.HastaId" class="form-label">Hasta Seçin</label>
+                <select asp-for="Ameliyat.HastaId" class="form-control">
+                    @foreach (var hasta in Model.Hastalar)
+                    {
+                        <option value="@hasta.Id">@hasta.Ad</option>
+                    }
+                </select>
+                <span asp-validation-for="Ameliyat.HastaId" class="text-danger small"></span>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label asp-for="DiyafragmaHernisiss.AmeliyatTipi" class="form-label">Ameliyat Tipi</label>
+                <input asp-for="DiyafragmaHernisiss.AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" />
+                <span asp-validation-for="DiyafragmaHernisiss.AmeliyatTipi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DiyafragmaHernisiss.GAA_PVI" class="form-label">GAA/PVI</label>
+                <input asp-for="DiyafragmaHernisiss.GAA_PVI" class="form-control" placeholder="GAA/PVI" />
+                <span asp-validation-for="DiyafragmaHernisiss.GAA_PVI" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DiyafragmaHernisiss.InsizyonYapilmasi" class="form-label">İnsizyon Yapılması</label>
+                <input asp-for="DiyafragmaHernisiss.InsizyonYapilmasi" class="form-control" placeholder="İnsizyon Yapılması" />
+                <span asp-validation-for="DiyafragmaHernisiss.InsizyonYapilmasi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DiyafragmaHernisiss.DefektOnarimi" class="form-label">Defekt Onarımı</label>
+                <input asp-for="DiyafragmaHernisiss.DefektOnarimi" class="form-control" placeholder="Defekt Onarımı" />
+                <span asp-validation-for="DiyafragmaHernisiss.DefektOnarimi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DiyafragmaHernisiss.KanamaKontrolu" class="form-label">Kanama Kontrolü</label>
+                <input asp-for="DiyafragmaHernisiss.KanamaKontrolu" class="form-control" placeholder="Kanama Kontrolü" />
+                <span asp-validation-for="DiyafragmaHernisiss.KanamaKontrolu" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DiyafragmaHernisiss.KomplikasyonDurumu" class="form-label">Komplikasyon Durumu</label>
+                <input asp-for="DiyafragmaHernisiss.KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" />
+                <span asp-validation-for="DiyafragmaHernisiss.KomplikasyonDurumu" class="text-danger small"></span>
+            </div>
+
+
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class=" btn btn-primary"><i class="fa-solid fa-save me-2"></i>Save</button>
+            </div>
+        </form>
+    </div>
+</div>

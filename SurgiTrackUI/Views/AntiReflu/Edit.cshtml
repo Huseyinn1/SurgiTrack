@@ -1,0 +1,117 @@
+﻿@model AntiReflu
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>AntiReflu Ekleme</h3>
+                <p class="text-subtitle text-muted">Lütfen aşağıdaki formu doldurarak AntiReflu bilgilerinizi eksiksiz bir şekilde ekleyin.</p>
+            </div>
+        </div>
+    </div>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">AntiReflu Ekle</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form asp-action="Add" method="post" class="form">
+
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="AmeliyatId">Ameliyat Seç</label>
+                                            <select id="AmeliyatId" class="form-select" name="AmeliyatId">
+                                                <option value="" disabled>Ameliyat Seçiniz</option>
+                                                @foreach (var ameliyat in ViewBag.Ameliyatlar)
+                                                {
+                                                    <option value="@ameliyat.Id">@($"{ameliyat.AmeliyatName} - {ameliyat.HastaName} {ameliyat.HastaSurname}")</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="AmeliyatTipi">Ameliyat Tipi</label>
+                                            <input type="text" id="AmeliyatTipi" class="form-control" placeholder="Ameliyat Tipi" name="AmeliyatTipi" value="@ViewBag.AntiReflu.AmeliyatTipi">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="GAA_PVI">GAA_PVI</label>
+                                            <input type="text" id="GAA_PVI" class="form-control" placeholder="GAA_PVI" name="GAA_PVI" value="@ViewBag.AntiReflu.GAA_PVI">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="OzefagusSerbest">Ozefagus Serbest</label>
+                                            <input type="text" id="OzefagusSerbest" class="form-control" placeholder="Ozefagus Serbest" name="OzefagusSerbest" value="@ViewBag.AntiReflu.OzefagusSerbest">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="Fundoplikasyon">Fundoplikasyon</label>
+                                            <input type="text" id="Fundoplikasyon" class="form-control" placeholder="Fundoplikasyon" name="Fundoplikasyon" value="@ViewBag.AntiReflu.Fundoplikasyon">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="GastrostomiAcilmasi">Gastrostomi Açıklması</label>
+                                            <input type="text" id="GastrostomiAcilmasi" class="form-control" placeholder="Gastrostomi Açıklması" name="GastrostomiAcilmasi" value="@ViewBag.AntiReflu.GastrostomiAcilmasi">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="KanamaKontrolu">Kanama Kontrolu</label>
+                                            <input type="text" id="KanamaKontrolu" class="form-control" placeholder="Kanama Kontrolu" name="KanamaKontrolu" value="@ViewBag.AntiReflu.KanamaKontrolu">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="KomplikasyonDurumu">Komplikasyon Durumu</label>
+                                            <input type="text" id="KomplikasyonDurumu" class="form-control" placeholder="Komplikasyon Durumu" name="KomplikasyonDurumu" value="@ViewBag.AntiReflu.KomplikasyonDurumu">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end mt-2">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Düzenle</button>
+                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Temizle</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // Basic multiple Column Form section end -->
+</div>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Form gönderildiğinde başarılı uyarısı
+        var form = document.querySelector('.form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Formun sayfayı yeniden yüklemesini engeller
+
+            // Form başarıyla gönderildiğinde uyarı göster
+            var successMessage = document.createElement('div');
+            successMessage.className = 'alert alert-success';
+            successMessage.textContent = 'Form başarıyla gönderildi!';
+            form.appendChild(successMessage);
+
+            // Belirli bir süre sonra sayfayı yenile
+            setTimeout(function () {
+                location.reload();
+            }, 2000); // 2000 milisaniye (2 saniye) sonra sayfa yenilenecek
+        });
+    });
+</script>

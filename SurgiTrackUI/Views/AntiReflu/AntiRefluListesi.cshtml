@@ -1,0 +1,103 @@
+﻿@model List<AntiReflu>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z5lFf5r5lCtH5UhV/wGn1I6Ii/zpCtHfQZzQmG6Z4Og6iFlPeaVTFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <!-- DataTables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h3>AntiReflü Listesi</h3>
+        </div>
+        <div class="mb-3">
+            <a href="@Url.Action("Add")" class="btn btn-success">
+                Yeni Kayıt
+            </a>
+        </div>
+
+        <table id="yourTableId" class="table table-bordered table-striped table-sm">
+            <thead>
+                <!--  <form method="get" action="@Url.Action("DoktorListesi", "Doktor")">
+                         <div class="input-group mb-3">
+                             <input type="text" class="form-control" name="search" id="searchInput" placeholder="Doktor Adı">
+                             <button class="btn btn-outline-secondary" type="submit">Ara</button>
+                         </div>
+                     </form> -->
+                <tr>
+
+                    <th>Ameliyat Tipi</th>
+                    <th>GAA_PVI</th>
+                    <th>Ozefagus Serbest</th>
+                    <th>Fundoplikasyon</th>
+                    <th>Gastrostomi Açılması</th>
+                    <th>Kanama Kontrolü</th>
+                    <th>Komplikasyon Durumu</th>
+                    <th>Detay</th>
+                    <th>Düzenle</th>
+                    <th>Sil</th>
+
+
+                    <!-- Diğer kullanıcı özellikleri eklenebilir -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var antiReflu in Model)
+                {
+                    <tr>
+
+                        <td>@antiReflu.AmeliyatTipi</td>
+                        <td>@antiReflu.GAA_PVI</td>
+                        <td>@antiReflu.OzefagusSerbest</td>
+                        <td>@antiReflu.Fundoplikasyon</td>
+                        <td>@antiReflu.GastrostomiAcilmasi</td>
+                        <td>@antiReflu.KanamaKontrolu</td>
+                        <td>@antiReflu.KomplikasyonDurumu</td>
+
+                        <td>
+
+                           @*  <a href="@Url.Action("TekilAntiReflu", "AntiReflu", new { id = antiReflu.Id })" class="btn btn-primary btn-sm"> <i class="bi bi-person"></i>Detay</a> *@
+                            <a href="@Url.Action("TekilAntiReflu", "AntiReflu", new { id = antiReflu.Id })" class="btn btn-primary btn-sm"> Detay</a>
+
+
+                        </td>
+                        <td>
+@* 
+                            <a asp-action="Edit" asp-route-id="@antiReflu.Id" class="btn btn-info btn-sm "><i class="fa fa-edit me-2"> Düzenle</i></a> *@
+                            <a asp-action="Edit" asp-route-id="@antiReflu.Id" class="btn btn-info btn-sm "><i class="fa fa-edit me-2"> Düzenle</i></a>
+
+                        </td>
+                        <td>
+
+                            <a asp-action="Delete" asp-route-id="@antiReflu.Id"
+                               onclick="return confirm('Are you sure  want to delete this Surgery: @antiReflu.Id')"
+                               class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"> Sil</i></a>
+                        </td>
+                        <!-- Diğer kullanıcı özellikleri eklenebilir -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde ve arama kutusuna her yazıldığında çalışacak JavaScript fonksiyonu
+        $(document).ready(function () {
+
+            $('#yourTableId').DataTable();
+        });
+    </script>
+</body>
+</html>

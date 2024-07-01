@@ -1,0 +1,130 @@
+﻿    ﻿@using SurgiTrackUI.Models
+@model AmeliyatListViewModel
+
+@{
+    ViewData["Title"] = "Tek Kolon Pull Through (Erkek) Ameliyatı";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="display-4 text-center border-bottom pb-2">
+                @foreach (var hasta in Model.Hastalar)
+                {
+                    <div>@hasta.Ad @hasta.Soyad</div>
+                }
+                @Model.Ameliyatlarr.AmeliyatAdi @ViewData["Title"]
+            </h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="text-danger small mb-4"></div>
+
+            @*<div class="text-center mb-3">
+            <label class="form-label small mb-2">Profil İmage</label>
+            <img src="~/uploads/@Model.ProfilImageFileName" width="128" class="img-thumbnail rounded-circle" />
+            </div>*@
+
+
+            <div class="form-group">
+                <label class="form-label small">Hasta Adı</label>
+                <div class="form-control">
+                    @foreach (var hasta in Model.Hastalar)
+                    {
+                        <div class="hasta-item">
+                            @hasta.Ad @hasta.Soyad -->
+                            <a href="@Url.Action("TekilHasta", "Hasta", new { id = hasta.Id })">Hasta Profiline Git</a>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Tipi</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.AmeliyatTipi</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Yapılan Bölge</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.AmeliyatYapilanBolge</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Yöntemi</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.AmeliyatYontemi</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">GAA_PVI</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.GAA_PVI</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">>Rektum Askıya Alma</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.RektumAskiyaAlma</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Üretra Kateterizasyon</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.UretraKateterizasyon</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Rektum Diseksiyonu</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.RektumDiseksiyonu</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Anüs Sfinter Koruma</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.AnusSfinterKoruma</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Pull Through İşlemi</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.PullThroughIslemi</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Anostomoz Yapılması</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.AnostomozYapilmasi</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Kanama Kontrolü</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.KanamaKontrolu</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Komplikasyon Durumu</label>
+                <div class="form-control">@Model.KolonPullThroughErkekss.KomplikasyonDurumu</div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label small">Ametliyat Doktoru</label>
+                @foreach (var doktor in Model.Doktorlar)
+                {
+                    <div class="form-control">
+
+                        <div>
+                            @doktor.Ad    @doktor.Soyad -->
+                            <a href="@Url.Action("TekilDoktor", "Doktor", new { id = doktor.Id })">Doktor Profiline Git</a>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label class="form-label small">Ameliyat Detayları</label>
+                <div class="form-control">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

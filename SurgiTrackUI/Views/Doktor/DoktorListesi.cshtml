@@ -1,0 +1,87 @@
+﻿﻿@using SurgiTrackUI.Models
+@model List<Doktor>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z5lFf5r5lCtH5UhV/wGn1I6Ii/zpCtHfQZzQmG6Z4Og6iFlPeaVTFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="~/css/styles.css" rel="stylesheet" />
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+             
+   
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<!-- DataTables JS -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h3>Kayıtlı Doktorlar</h3>
+        </div>
+<table id="yourTableId" class="table table-bordered table-striped table-sm">
+    <thead>
+   <!--  <form method="get" action="@Url.Action("DoktorListesi", "Doktor")">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search" id="searchInput" placeholder="Doktor Adı">
+                <button class="btn btn-outline-secondary" type="submit">Ara</button>
+            </div>
+        </form> -->
+        <tr>
+           <th></th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Cinsiyet</th>
+            <th>Telefon</th>
+            <th>E-posta</th>
+            <th>Katıldığı Tarih</th>
+            <th>İşlemler</th>
+            <!-- Diğer kullanıcı özellikleri eklenebilir -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+                    <tr>
+                        @if (@user.Cinsiyet == 'e' || @user.Cinsiyet == 'E')
+                        {
+                            <td><img src="~/Icon/man8.jpg" alt="Doktor Icon"  width="50" height="50"></td>
+                        }
+                        else
+                        {  <td ><img src="~/Icon/woman.jpg" alt="Doktor Icon" width="50" height="50"></td>}
+             
+            <td>@user.Ad</td>
+              <td>@user.Soyad</td>
+               <td>@user.Cinsiyet</td>
+              <td>@user.Telefon</td>
+                <td>@user.Eposta</td>
+              <td>@user.KayitTarihi.ToString("yyyy-MM-dd")</td>
+              <td>
+                 
+                        <a href="@Url.Action("TekilDoktor", "Doktor", new { id = user.Id })" class="btn btn-primary btn-sm"> <i class="bi bi-person"></i>Profile Git</a>
+                            <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-info btn-sm "><i class="fa fa-edit me-2">Düzenle</i></a>
+                           <a asp-action="Delete" asp-route-id="@user.Id"
+                            onclick="return confirm('Are you sure  want to delete this Doktor: @user.Ad @user.Soyad?')"
+                            class="btn btn-danger btn-sm"><i class="fa fa-trash me-2">Sil</i></a>
+                        </td>    
+                <!-- Diğer kullanıcı özellikleri eklenebilir -->
+            </tr>
+        }
+    </tbody>
+</table>
+    </div>
+   
+    <script>
+    // Sayfa yüklendiğinde ve arama kutusuna her yazıldığında çalışacak JavaScript fonksiyonu
+  $(document).ready(function () {
+       
+         $('#yourTableId').DataTable();
+    });
+</script>
+</body>
+</html>
